@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("names")
 public class NameController {
-
-    @GetMapping("city")
-    public String getCityName() {
-        return "Nova Trento";
-    }
     @GetMapping("person")
     public String getPersonName() {
         return "Giovanni";
+    }
+    @GetMapping("city")
+    public String getCityName() {
+        return "Nova Trento";
     }
 }
 
