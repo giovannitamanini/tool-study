@@ -4,8 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Entity
-public class Beer {
+@Entity(name = "beer")
+public class BeerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")

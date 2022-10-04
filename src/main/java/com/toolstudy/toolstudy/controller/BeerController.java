@@ -1,22 +1,25 @@
 package com.toolstudy.toolstudy.controller;
 
-import com.toolstudy.toolstudy.domain.Beer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
+import com.toolstudy.toolstudy.entity.BeerEntity;
+import com.toolstudy.toolstudy.service.BeerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class BeerController {
+    private final BeerService beerService;
 
-    @GetMapping("/beers")
-    public String getAllBeerInformation() {
-        Beer beer = new Beer();
-        beer.setName("Coruja");
-        beer.setColor("black");
-        beer.setPrice(BigDecimal.valueOf(10.90));
-
-        return beer.getAllInformation();
+    @PostMapping("/beers")
+    public ResponseEntity<BeerEntity> saveBeer(@RequestBody BeerEntity beer) {
+        BeerEntity savedBeer = beerService.saveBeer(beer);
+        return ResponseEntity.ok(savedBeer);
     }
 
+    @GetMapping("/beers/{beerId}")
+    public ResponseEntity<BeerEntity> findById(@PathVariable int beerId) {
+        BeerEntity beer = beerService.findById(beerId);
+        return ResponseEntity.ok(beer);
+    }
 }
