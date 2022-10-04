@@ -1,6 +1,7 @@
-package com.toolstudy.toolstudy.domain;
+package com.toolstudy.toolstudy.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -9,8 +10,11 @@ public class Beer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
+    @NotNull
     private String name;
+    @NotNull
     private String color;
+    @NotNull
     private BigDecimal price;
 
     public void setName(String name) {
