@@ -1,3 +1,3 @@
 # tool-study
 
-Projeto para o aprendizado e uso de ferramentas como API's, framworks, IDEs, VCS, etc.
+Project for learning and using tools such as API's, frameworks, IDEs, VCS, etc.
